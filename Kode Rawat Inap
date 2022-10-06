@@ -1,0 +1,346 @@
+import java.util.Scanner;
+
+public class RawatInap {
+    static String[][] loginInfo = {
+            {"owner", "owner123"},
+            {"112", "116"},
+            {"1", "1"},
+    };
+    static Object[][][][] dataPasien = new Object[][][][]{
+            {
+                    {
+                            {"Nama", "Rehan"},
+                            {"Nama Panjang", "Rehan Surehan"},
+                            {"Umur", 19},
+                            {"Penyakit", "Flu"},
+                            {"Kelas", "1"},
+                            {"Ruang", 1},
+                            {"Kasur", 1}
+                    }, {
+                            {"Nama", "Imelda"},
+                            {"Nama Panjang", "Imelda Sulton"},
+                            {"Umur", 22},
+                            {"Penyakit", "Cacingan"},
+                            {"Kelas", "1"},
+                            {"Ruang", 1},
+                            {"Kasur", 2}
+                    }, {
+                            {"Nama", "Mukito"},
+                            {"Nama Panjang", "Mukito"},
+                            {"Umur", 40},
+                            {"Penyakit", "Patah Tulang"},
+                            {"Kelas", "1"},
+                            {"Ruang", 2},
+                            {"Kasur", 1}
+                    }
+            }, {
+                    {
+                            {"Nama", "Megan"},
+                            {"Nama Panjang", "Megan Merkel"},
+                            {"Umur", 19},
+                            {"Penyakit", "Flu"},
+                            {"Kelas", "2"},
+                            {"Ruang", 1},
+                            {"Kasur", 1}
+
+                            }, {
+                            {"Nama", "Wellis"},
+                            {"Nama Panjang", "Wiliam Wellis"},
+                            {"Umur", 22},
+                            {"Penyakit", "Cacingan"},
+                            {"Kelas", "2"},
+                            {"Ruang", 1},
+                            {"Kasur", 2}
+                    }, {
+                            {"Nama", "Sumbul"},
+                            {"Nama Panjang", "Muhammad Sumbul"},
+                            {"Umur", 40},
+                            {"Penyakit", "Patah Tulang"},
+                            {"Kelas", "2"},
+                            {"Ruang", 1},
+                            {"Kasur", 3}
+                    }
+            }, {
+                    {
+                            {"Nama", "Shaggy"},
+                            {"Nama Panjang", "Shaggy Sulaiman"},
+                            {"Umur", 19},
+                            {"Penyakit", "Flu"},
+                            {"Kelas", "3"},
+                            {"Ruang", 1},
+                            {"Kasur", 1}
+                    }, {
+                            {"Nama", "Toby"},
+                            {"Nama Panjang", "Toby Tobuskus"},
+                            {"Umur", 22},
+                            {"Penyakit", "Cacingan"},
+                            {"Kelas", "3"},
+                            {"Ruang", 1},
+                            {"Kasur", 2}
+                    }, {
+                            {"Nama", "Jeff"},
+                            {"Nama Panjang", "Jeffery Epsilon"},
+                            {"Umur", 40},
+                            {"Penyakit", "Patah Tulang"},
+                            {"Kelas", "3"},
+                            {"Ruang", 1},
+                            {"Kasur", 3}
+                    }
+            }, {
+                    {
+                            {"Nama", "Niki"},
+                            {"Nama Panjang", "Niki Minaj"},
+                            {"Umur", 19},
+                            {"Penyakit", "Flu"},
+                            {"Kelas", "VIP"}
+                            }, {
+                            {"Nama", "Lili"},
+                            {"Nama Panjang", "Lili Pichu"},
+                            {"Umur", 22},
+                            {"Penyakit", "Cacingan"},
+                            {"Kelas", "VIP"},
+                            {"Ruang", 2},
+                            {"Kasur", 1}
+                    }, {
+                            {"Nama", "Mike"},
+                            {"Nama Panjang", "Michael Tison"},
+                            {"Umur", "40"},
+                            {"Penyakit", "Patah Tulang"},
+                            {"Kelas", "VIP"},
+                            {"Ruang", 3},
+                            {"Kasur", 1}
+                    }
+            }
+    };
+    public static void login() {
+        Scanner inputData = new Scanner(System.in);
+        String userIdLogin, passwordLogin, opsiLogin;
+        boolean kondisiWhileLoopsLogin = true;
+        boolean kondisiPilihanLoginUlang;
+        boolean berhasilLogin;
+        while (kondisiWhileLoopsLogin) {
+            berhasilLogin = false;
+
+            System.out.println("\nSilahlan login terlebih dahulu!");
+            System.out.print("UserId: ");
+            userIdLogin = inputData.nextLine();
+            System.out.print("Password: ");
+            passwordLogin = inputData.nextLine();
+
+            for (int i = 0; i < loginInfo.length; i++) {
+                if (userIdLogin.equals(loginInfo[i][0]) && (passwordLogin.equals(loginInfo[i][1]))) {
+                    System.out.println("Anda Berhasil Login");
+                    berhasilLogin = true;
+                    break;
+                }
+            }
+            if (berhasilLogin) {
+                kondisiWhileLoopsLogin = false;
+            } else {
+                System.out.println("User ID atau Password yang anda masukan salah!");
+                System.out.println("[1] untuk mencoba lagi");
+                System.out.println("[2] untuk keluar");
+
+                kondisiPilihanLoginUlang = true;
+                while (kondisiPilihanLoginUlang) {
+                    System.out.print("Input: ");
+                    opsiLogin = inputData.nextLine();
+                    if (opsiLogin.equals("1")) {
+                        kondisiPilihanLoginUlang = false;
+                    } else if (opsiLogin.equals("2")) {
+                        System.out.println("Anda Telah Keluar dari Program");
+                        System.exit(1);
+                    } else {
+                        System.out.println("Input Salah, coba lagi!");
+                    }
+                }
+            }
+        }
+    }
+    public static void printBiodataPasien(int kelas, int nomerPasien) {
+        if (kelas < dataPasien.length && nomerPasien < dataPasien[kelas].length) {
+            System.out.println(" ");
+            for (int i = 0; i < dataPasien[kelas][nomerPasien].length; ++i) {
+                System.out.println(dataPasien[kelas][nomerPasien][i][0] + ": " + dataPasien[kelas][nomerPasien][i][1]);
+            }
+        } else {
+            System.out.println("\nData Pasien Tidak Ada\n");
+        }
+    }
+    public static void layananDataPasien() {
+        Scanner inputData = new Scanner(System.in);
+        boolean kondisiLayananDataPasien = true;
+        boolean kondisiPilihanLayananDataPasien;
+        int pilihanKelas, nomerPasien, opsiLayananDataPasien;
+        while (kondisiLayananDataPasien) {
+            System.out.println("\nPilih Kelas!");
+            System.out.println("[1] Kelas 1");
+            System.out.println("[2] Kelas 2");
+            System.out.println("[3] Kelas 3");
+            System.out.println("[4] Kelas VIP");
+
+            System.out.print("Input: ");
+            pilihanKelas = inputData.nextInt();
+            System.out.println("\n======\n");
+            if (pilihanKelas <=4 && pilihanKelas >= 1) {
+                if (pilihanKelas == 1) {
+                    System.out.println("Data Pasien Kelas 1:");
+                    System.out.println("Jumlah Pasien: " + dataPasien[0].length);
+                    for (int i = 0; i < dataPasien[0].length; ++i) {
+                        System.out.printf("[%d] %s\n", (i + 1), dataPasien[0][i][0][1]);
+                    }
+                } else if (pilihanKelas == 2) {
+                    System.out.println("Data Pasien Kelas 2:");
+                    System.out.println("Jumlah Pasien: " + dataPasien[1].length);
+                    for (int i = 0; i < dataPasien[0].length; ++i) {
+                        System.out.printf("[%d] %s\n", (i + 1), dataPasien[1][i][0][1]);
+                    }
+                } else if (pilihanKelas == 3) {
+                    System.out.println("Data Pasien Kelas 3:");
+                    System.out.println("Jumlah Pasien: " + dataPasien[1].length);
+                    for (int i = 0; i < dataPasien[0].length; ++i) {
+                        System.out.printf("[%d] %s\n", (i + 1), dataPasien[2][i][0][1]);
+                    }
+                } else {
+                    System.out.println("Data Pasien Kelas VIP:");
+                    System.out.println("Jumlah Pasien: " + dataPasien[1].length);
+                    for (int i = 0; i < dataPasien[0].length; ++i) {
+                        System.out.printf("[%d] %s\n", (i + 1), dataPasien[3][i][0][1]);
+                    }
+                }
+                kondisiPilihanLayananDataPasien = true;
+                while (kondisiPilihanLayananDataPasien) {
+                    System.out.println("\nOpsi");
+                    System.out.println("[1] Buka Biodata Pasien");
+                    System.out.println("[2] Buka Data Kelas Lain");
+                    System.out.println("[3] Selesai");
+                    System.out.print("Input: ");
+                    opsiLayananDataPasien = inputData.nextInt();
+                    if (opsiLayananDataPasien <=3 && opsiLayananDataPasien >= 1) {
+                        if (opsiLayananDataPasien == 1) {
+                            System.out.print("Masukkan Nomer Pasien: ");
+                            nomerPasien = inputData.nextInt();
+                            printBiodataPasien((pilihanKelas - 1), (nomerPasien - 1));
+                        } else if (opsiLayananDataPasien == 2) {
+                            kondisiPilihanLayananDataPasien = false;
+                        } else {
+                            kondisiPilihanLayananDataPasien = false;
+                            kondisiLayananDataPasien = false;
+                        }
+                    } else {
+                        System.out.println("Input Salah Coba Lagi");
+                    }
+                }
+
+            } else {
+                System.out.println("Input Salah");
+            }
+
+        }
+    }
+    public static void layananPencarianPasien() {
+        Scanner inputData = new Scanner(System.in);
+        String namaDicari;
+        boolean kondisiLayananPencarianPasien = true;
+        while(kondisiLayananPencarianPasien) {
+            boolean namaDitemukan = false;
+            System.out.print("Masukan Nama: ");
+            namaDicari = inputData.nextLine();
+            for (int i = 0; i < dataPasien.length; ++i) {
+                for (int j = 0; j < dataPasien[i].length; ++j) {
+                    if (namaDicari.equals(dataPasien[i][j][0][1])) {
+                        namaDitemukan = true;
+                        System.out.println("\nData Pasien Ditemukan");
+                        for (int k = 0; k < dataPasien[i][j].length; ++k) {
+                            System.out.printf("%s: %s\n", dataPasien[i][j][k][0], dataPasien[i][j][k][1]);
+                        }
+                        System.out.println(" ");
+                    }
+                }
+            }
+            if (!namaDitemukan) {
+                System.out.println("\nNama tidak ditemukan\n");
+            }
+            String pilihanOpsiPencarianPasien;
+            boolean kondisiOpsiLayananPencarianPasien = true;
+            while(kondisiOpsiLayananPencarianPasien) {
+                System.out.println("Opsi");
+                System.out.println("[1] Cari Pasien Lain");
+                System.out.println("[2] Selesai");
+                System.out.print("input: ");
+                pilihanOpsiPencarianPasien = inputData.nextLine();
+                if (pilihanOpsiPencarianPasien.equals("1")) {
+                    kondisiOpsiLayananPencarianPasien = false;
+                } else if (pilihanOpsiPencarianPasien.equals("2")) {
+                    System.out.println("\nAnda Keluar dari Program Pencarian Pasien");
+                    kondisiLayananPencarianPasien = false;
+                    kondisiOpsiLayananPencarianPasien = false;
+                } else {
+                    System.out.println("Input Salah\n");
+                }
+            }
+
+        }
+    }
+    public static void layanan() {
+        Scanner inputData = new Scanner(System.in);
+        int opsiLayanan;
+
+        System.out.println("\n======\n");
+        System.out.println("Pilih Layanan");
+        System.out.println("[1] Pendaftaran Pasien");
+        System.out.println("[2] Lihat Database Pasien");
+        System.out.println("[3] Edit Biodata Pasien");
+        System.out.println("[4] Pencarian Pasien");
+        System.out.println("[5] Lihat Data Rawat Inap");
+        System.out.println("[6] Edit Data Rawat Inap");
+        System.out.println("[7] Lihat Jadwal Perawat");
+        System.out.print("Input: ");
+
+        boolean kondisiPilihanLayanan = true;
+        while (kondisiPilihanLayanan) {
+            System.out.print("Input: ");
+            opsiLayanan = inputData.nextInt();
+            if (opsiLayanan == 1) {
+                kondisiPilihanLayanan = false;
+                System.out.println("\n======\n");
+                System.out.println("Anda memilih layanan Pendaftaran Pasien");
+            } else if (opsiLayanan == 2) {
+                kondisiPilihanLayanan = false;
+                System.out.println("\n======\n");
+                System.out.println("Anda memilih layanan Lihat Database Pasien");
+                layananDataPasien();
+            } else if (opsiLayanan == 3) {
+                kondisiPilihanLayanan = false;
+                System.out.println("\n======\n");
+                System.out.println("Anda memilih layanan Edit Biodata Pasien");
+            } else if (opsiLayanan == 4) {
+                kondisiPilihanLayanan = false;
+                System.out.println("\n======\n");
+                System.out.println("Anda memilih layanan Pencarian Pasien");
+                layananPencarianPasien();
+            } else if (opsiLayanan == 5) {
+                kondisiPilihanLayanan = false;
+                System.out.println("\n======\n");
+                System.out.println("Anda memilih layanan Lihat Data Rawat Inap");
+            } else if (opsiLayanan == 6) {
+                kondisiPilihanLayanan = false;
+                System.out.println("\n======\n");
+                System.out.println("Anda memilih layanan Edit Data Rawat Inap");
+            } else if (opsiLayanan == 7) {
+                kondisiPilihanLayanan = false;
+                System.out.println("\n======\n");
+                System.out.println("Anda memilih layanan Lihat Jadwal Perawat");
+            } else {
+                System.out.println("Input Salah Coba Lagi\n");
+            }
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println("Selamat Datang di Sistem Layanan\nRawat Inap RS FILKOM");
+        login();
+        layanan();
+        System.out.println("\nProgram Selesai");
+    }
+
+}
