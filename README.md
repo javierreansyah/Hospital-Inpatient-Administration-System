@@ -1,5 +1,3 @@
 # Hospital Inpatient Administration System
 
-This project is the final project for my Fundamental Programming Course at college. 
-This java program aim is to help helathcare worker take care patient more efficiently in hospital by keeping data of their patient inside this program. Healthcare worker can easily find patient data like name, room number, and even medication. 
-Healthcare worker can also know statistics of the overall patient in the inpatient departement example like how many patient are there, and which room is currently used.
+This project serves as the final assignment for my Fundamental Programming Course at college. The aim of this Java program is to assist healthcare workers in efficiently managing patient care within the hospital by maintaining comprehensive patient records. Healthcare workers can easily access patient information such as names, room numbers, and prescribed medications. Additionally, they can gather statistics related to the overall patient population in the inpatient department, such as the total number of patients and the current room occupancy status.
